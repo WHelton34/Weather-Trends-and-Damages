@@ -24,7 +24,7 @@ def fetch_weather_data(city, state_code, country_code, api_key):
     return None, None, None
 
 # API key and city details
-api_key = "1bc5f6c932a96b283e4e26d1f4d91bc2"
+api_key = "Add API Here"
 city = "Add city name"
 state_code = "add state code"
 country_code = "US"
