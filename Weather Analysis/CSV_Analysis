@@ -29,41 +29,39 @@ grouped_df = df.groupby(['EVENT_TYPE', 'BEGIN_DATE']).agg({
     'DAMAGE_CROPS_NUM': 'sum'
 }).reset_index()
 
-# Plot the data
-fig, ax = plt.subplots(3, 1, figsize=(12, 18))
+import pandas as pd
 
-# Plot Deaths over Time
-for event_type in grouped_df['EVENT_TYPE'].unique():
-    event_data = grouped_df[grouped_df['EVENT_TYPE'] == event_type]
-    ax[0].plot(event_data['BEGIN_DATE'], event_data['DEATHS_DIRECT'], label=f'{event_type} - Direct Deaths')
-    ax[0].plot(event_data['BEGIN_DATE'], event_data['DEATHS_INDIRECT'], label=f'{event_type} - Indirect Deaths', linestyle='--')
-ax[0].set_title('Deaths by Event Type Over Time')
-ax[0].set_xlabel('Date')
-ax[0].set_ylabel('Number of Deaths')
-ax[0].legend()
-ax[0].tick_params(axis='x', rotation=45)
+# Load CSV data into a DataFrame
+df = pd.read_csv("storm_events.csv")
 
-# Plot Injuries over Time
-for event_type in grouped_df['EVENT_TYPE'].unique():
-    event_data = grouped_df[grouped_df['EVENT_TYPE'] == event_type]
-    ax[1].plot(event_data['BEGIN_DATE'], event_data['INJURIES_DIRECT'], label=f'{event_type} - Direct Injuries')
-    ax[1].plot(event_data['BEGIN_DATE'], event_data['INJURIES_INDIRECT'], label=f'{event_type} - Indirect Injuries', linestyle='--')
-ax[1].set_title('Injuries by Event Type Over Time')
-ax[1].set_xlabel('Date')
-ax[1].set_ylabel('Number of Injuries')
-ax[1].legend()
-ax[1].tick_params(axis='x', rotation=45)
+# Convert the BEGIN_DATE column to datetime format
+df['BEGIN_DATE'] = pd.to_datetime(df['BEGIN_DATE'])
 
-# Plot Damages over Time
-for event_type in grouped_df['EVENT_TYPE'].unique():
-    event_data = grouped_df[grouped_df['EVENT_TYPE'] == event_type]
-    ax[2].plot(event_data['BEGIN_DATE'], event_data['DAMAGE_PROPERTY_NUM'], label=f'{event_type} - Property Damage')
-    ax[2].plot(event_data['BEGIN_DATE'], event_data['DAMAGE_CROPS_NUM'], label=f'{event_type} - Crop Damage', linestyle='--')
-ax[2].set_title('Damages by Event Type Over Time')
-ax[2].set_xlabel('Date')
-ax[2].set_ylabel('Damage ($)')
-ax[2].legend()
-ax[2].tick_params(axis='x', rotation=45)
+# Select relevant columns
+relevant_columns = ['BEGIN_DATE', 'CZ_NAME_STR', 'BEGIN_LOCATION', 'EVENT_TYPE', 'DEATHS_DIRECT', 'DAMAGE_PROPERTY_NUM', 'DAMAGE_CROPS_NUM']
+cleaned_df = df[relevant_columns]
 
-plt.tight_layout()
-plt.show()
+# Rename columns
+cleaned_df.rename(columns={
+    'BEGIN_DATE': 'Date',
+    'CZ_NAME_STR': 'CountyName',
+    'BEGIN_LOCATION': 'Location',
+    'EVENT_TYPE': 'EventType',
+    'DEATHS_DIRECT': 'Deaths',
+    'DAMAGE_PROPERTY_NUM': 'PropertyDamage',
+    'DAMAGE_CROPS_NUM': 'CropDamage'
+}, inplace=True)
+
+# Handle missing values
+cleaned_df.fillna({'Location': 'Unknown', 'Deaths': 0, 'PropertyDamage': 0, 'CropDamage': 0}, inplace=True)
+
+# Ensure correct data types
+cleaned_df['Date'] = pd.to_datetime(cleaned_df['Date'])
+cleaned_df['Deaths'] = cleaned_df['Deaths'].astype(int)
+cleaned_df['PropertyDamage'] = cleaned_df['PropertyDamage'].astype(float)
+cleaned_df['CropDamage'] = cleaned_df['CropDamage'].astype(float)
+
+# Save the cleaned data
+cleaned_df.to_csv('cleaned_data.csv', index=False)
+
+print("cleaned_data.csv created successfully!")
