@@ -5,10 +5,10 @@ This project aims to analyze and visualize weather event data sourced from the N
 
 ## Data Sources
 The data used in this project is obtained from the NCEI Storm Events Database. The specific dataset can be accessed and downloaded via the following URL:
-- [NCEI Storm Events CSV](https://www.ncdc.noaa.gov/stormevents/csv?eventType=ALL&beginDate_mm=01&beginDate_dd=01&beginDate_yyyy=2011&endDate_mm=12&endDate_dd=31&endDate_yyyy=2012&county=MAGOFFIN%3A153&hailfilter=0.00&tornfilter=0&windfilter=000&sort=DT&submitbutton=Search&statefips=21%2CKENTUCKY)
-
+- https://www.ncdc.noaa.gov/stormevents/csv?eventType=ALL&beginDate_mm=01&beginDate_dd=01&beginDate_yyyy=2010&endDate_mm=12&endDate_dd=31&endDate_yyyy=2024&county=MAGOFFIN%3A153&hailfilter=0.00&tornfilter=0&windfilter=000&sort=DT&submitbutton=Search&statefips=21%2CKENTUCKY
 API:
-- https://www.ncdc.noaa.gov/cdo-web/token
+- https://home.openweathermap.org/users/sign_up
+Once you sign up the website will send you an API Key needed for the Quick Current Weather file. 
 ## Installation
 
 ### Prerequisites
@@ -17,30 +17,33 @@ Ensure you have Python installed on your system. You can download Python from [p
 ### Steps to Install on Windows, macOS, and Linux
 
 1. **Clone the Repository**
-
-## Create a Virtual Environment
-
-python -m venv env
-
-## Activate the Virtual Environment
+```
+https://github.com/WHelton34/Weather-Trends-and-Damages.git
+```
+2. **Create a Virtual Environment**
+```
+python -m venv myenv
+```
+3. **Activate the Virtual Environment**
 
 Windows:
-.\env\Scripts\activate
-
-## macOS/Linux:
-
-source env/bin/activate
-
-## Install Dependencies
-
+```
+.\myenv\Scripts\activate
+```
+On macOS/Linux:
+```
+source myenv/bin/activate
+```
+4. **Install Dependencies**
+```
 pip install -r requirements.txt
-
+```
 ## Additional Steps for Linux Users
 On some Linux distributions, you might need to install additional packages for Python to interact with system libraries. Use the following commands:
-
+```
 sudo apt-get update
 sudo apt-get install python3-dev python3-pip python3-venv
-
+```
 # Summary of the Project
 The Weather Events Data Analysis project involves the following key steps:
 
@@ -60,8 +63,13 @@ Proportions of different event types.
 
 Damage to property vs. damage to crops.
 
-# Running the Project
-After completing the installation steps, you can run the analysis and generate the visualizations using:
+**Running the Project**
+once in VS Code, Navagate to Weather_Analysis then to Noaa_Weather_Analysis. Once there select run in the top right corner of the screen, a web page will appear where you can enter in dates and select a state and county. 
+- In my data I used 
+- State Kentucky / 01/01/2010 to 12/31/2024 / County Magoffin.
+ once you enter in this data the screen will show the data requested. in the bottom left Right clink on the CSV download link and copy the link address.
+ next you can take this data and under CSV_Alalysis paste it to csv_url (row 6)
+ To deactivate the virtual environment when you're done, simply type `deactivate` in your terminal.
 
-python analysis_script.py
-This command will execute the script, process the data, and display the generated visualizations.
+## Visualizations
+Visualizations of the findings can be viewed on my [Tableau Public workbook]
