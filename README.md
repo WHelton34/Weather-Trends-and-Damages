@@ -6,8 +6,10 @@ This project aims to analyze and visualize weather event data sourced from the N
 ## Data Sources
 The data used in this project is obtained from the NCEI Storm Events Database. The specific dataset can be accessed and downloaded via the following URL:
 - https://www.ncdc.noaa.gov/stormevents/csv?eventType=ALL&beginDate_mm=01&beginDate_dd=01&beginDate_yyyy=2010&endDate_mm=12&endDate_dd=31&endDate_yyyy=2024&county=MAGOFFIN%3A153&hailfilter=0.00&tornfilter=0&windfilter=000&sort=DT&submitbutton=Search&statefips=21%2CKENTUCKY
+
 API:
 - https://home.openweathermap.org/users/sign_up
+
 Once you sign up the website will send you an API Key needed for the Quick Current Weather file. 
 ## Installation
 
@@ -66,8 +68,10 @@ Damage to property vs. damage to crops.
 **Running the Project**
 once in VS Code, Navagate to Weather_Analysis then to Noaa_Weather_Analysis. Once there select run in the top right corner of the screen, a web page will appear where you can enter in dates and select a state and county. 
 - In my data I used 
-- State Kentucky / 01/01/2010 to 12/31/2024 / County Magoffin.
- once you enter in this data the screen will show the data requested. in the bottom left Right clink on the CSV download link and copy the link address.
+
+ State Kentucky / 01/01/2010 to 12/31/2024 / County Magoffin.
+ 
+- once you enter in this data the screen will show the data requested. in the bottom left Right clink on the CSV download link and copy the link address.
  next you can take this data and under CSV_Alalysis paste it to csv_url (row 6)
  To deactivate the virtual environment when you're done, simply type `deactivate` in your terminal.
 
