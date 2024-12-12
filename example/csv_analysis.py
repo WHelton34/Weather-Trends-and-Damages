@@ -3,7 +3,7 @@ import matplotlib.pyplot as plt
 import requests
 
 # URL of the CSV file
-csv_url = "https://www.ncdc.noaa.gov/stormevents/csv?eventType=ALL&beginDate_mm=01&beginDate_dd=01&beginDate_yyyy=2012&endDate_mm=12&endDate_dd=31&endDate_yyyy=2012&county=MAGOFFIN%3A153&hailfilter=0.00&tornfilter=0&windfilter=000&sort=DT&submitbutton=Search&statefips=21%2CKENTUCKY"
+csv_url = "https://www.ncdc.noaa.gov/stormevents/csv?eventType=ALL&beginDate_mm=01&beginDate_dd=01&beginDate_yyyy=2010&endDate_mm=12&endDate_dd=31&endDate_yyyy=2024&county=MAGOFFIN%3A153&hailfilter=0.00&tornfilter=0&windfilter=000&sort=DT&submitbutton=Search&statefips=21%2CKENTUCKY"
 
 # Send a GET request to the URL and save the content to a local file
 response = requests.get(csv_url)
