@@ -65,7 +65,7 @@ Proportions of different event types.
 
 Damage to property vs. damage to crops.
 
-# Running the Project**
+# Running the Project
 once in VS Code, Navagate to Weather_Analysis then to Noaa_Weather_Analysis. Once there select run in the top right corner of the screen, a web page will appear where you can enter in dates and select a state and county. 
 - In my data I used 
 
