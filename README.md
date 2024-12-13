@@ -75,7 +75,7 @@ To run Noaa_Weather_Analysis Navagate to the Weather_Analysis tab in VS code. th
 - once you enter in this data the screen will show the data requested. in the bottom left of the screen you will see a CSV link. Right click on the CSV download link and copy the link address.
  next you can take this data and under CSV_Alalysis paste it to csv_url (row 6) and now you can click Run in the top right corner of the screen. this will produce the csv file Storm_events and automaticaly clean the data and create Cleaned_Data csv. 
 
-to run the Quick_Current_Weather file you must first go to the provided API link and create an account. you will them recive a email with the API key. Using that key you can now copy and paste it into row 27 in Quick_Current_Weather along with the city and state code (ex:KY, TN, WV). This will give you basic information from the JSON file used by the API website and in the terminal show you a overview of the weather in the selected location. 
+- to run the Quick_Current_Weather file you must first go to the provided API link and create an account. you will them recive a email with the API key. Using that key you can now copy and paste it into row 27 in Quick_Current_Weather along with the city and state code (ex:KY, TN, WV). This will give you basic information from the JSON file used by the API website and in the terminal show you a overview of the weather in the selected location. 
 
  To deactivate the virtual environment when you're done, simply type `deactivate` in your terminal.
 
